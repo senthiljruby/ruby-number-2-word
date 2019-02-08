@@ -43,6 +43,7 @@ end
 
 class NumberToWord < PreManipulationForWords
   def letter_combinations(digits)
+
     #return if number not valid
     return [] if digits.nil? || digits.size != 10 || digits.split("").select { |a| (a.to_i == 0 || a.to_i == 1) }.length > 0
 
