@@ -8,4 +8,8 @@ class TestNumberToWord < Test::Unit::TestCase
     combination_words = "8686782825"
     assert_equal([["unto", "statal"], ""], final_words.letter_combinations(combination_words))
   end
+
+  def test_parameter_error
+    assert_raise(ArgumentError) { NumberToWord.new("a") }
+  end
 end
