@@ -1,6 +1,6 @@
 require "json"
 
-class NumberToWord
+class PreManipulationForWords
   def initialize
     @numberToLetterMap = JSON.parse(File.read("config/words_number.json"))
     # Read dictionary file and hold all values in a array
@@ -10,26 +10,6 @@ class NumberToWord
     File.foreach(file_path) do |word|
       @dictionary.push word.chop.to_s.downcase
     end
-  end
-
-  def letter_combinations(digits)
-    #return if number not valid
-    return [] if digits.nil? || digits.size != 10 || digits.split("").select { |a| (a.to_i == 0 || a.to_i == 1) }.length > 0
-
-    #number to letters mapping
-    letters = @numberToLetterMap
-
-    # get all letters for numbers in form of array
-    keys = digits.chars.map { |digit| letters[digit] }
-
-    results = self.manipulate_results_for_number(keys)
-
-    #arrange words like we need as a output
-    final_words = self.arrange_words(results)
-
-    # for all numbers
-    final_words << (keys.shift.product(*keys).map(&:join) & @dictionary).join(", ") # match with all character
-    final_words
   end
 
   def manipulate_results_for_number(keys, results = {})
@@ -57,6 +37,28 @@ class NumberToWord
         final_words << combo_words
       end
     end
+    final_words
+  end
+end
+
+class NumberToWord < PreManipulationForWords
+  def letter_combinations(digits)
+    #return if number not valid
+    return [] if digits.nil? || digits.size != 10 || digits.split("").select { |a| (a.to_i == 0 || a.to_i == 1) }.length > 0
+
+    #number to letters mapping
+    letters = @numberToLetterMap
+
+    # get all letters for numbers in form of array
+    keys = digits.chars.map { |digit| letters[digit] }
+
+    results = self.manipulate_results_for_number(keys)
+
+    #arrange words like we need as a output
+    final_words = self.arrange_words(results)
+
+    # for all numbers
+    final_words << (keys.shift.product(*keys).map(&:join) & @dictionary).join(", ") # match with all character
     final_words
   end
 end
