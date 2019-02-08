@@ -18,15 +18,23 @@ class PreManipulationForWords
     #Loo through all letters and get matching records with dictionary
     (2..total_number).each do |i|
       first_array = keys[0..i]
+      # puts first_array
       second_array = keys[i + 1..total_number]
       next if first_array.length < 3 || second_array.length < 3
       first_combination = first_array.shift.product(*first_array).map(&:join) # Get product of arrays
       next if first_combination.nil?
       second_combination = second_array.shift.product(*second_array).map(&:join)
+
       next if second_combination.nil?
       results[i] = [(first_combination & @dictionary), (second_combination & @dictionary)] # get common values from arrays
     end
     results
+  end
+
+  def check_valid_number(number)
+    unless (number.length == 10 && number.match(/^[2-9]*$/))
+      raise "The given number is not valid. Please try again"
+    end
   end
 
   def arrange_words(results)
@@ -45,7 +53,8 @@ class NumberToWord < PreManipulationForWords
   def letter_combinations(digits)
 
     #return if number not valid
-    return [] if digits.nil? || digits.size != 10 || digits.split("").select { |a| (a.to_i == 0 || a.to_i == 1) }.length > 0
+    # return [] if digits.nil? || digits.size != 10 || digits.split("").select { |a| (a.to_i == 0 || a.to_i == 1) }.length > 0
+    self.check_valid_number(digits)
 
     #number to letters mapping
     letters = @numberToLetterMap
