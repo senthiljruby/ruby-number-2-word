@@ -9,7 +9,7 @@ Benchmark.bm do |b|
   GC.start
   b.report("Number2word") do
     final_words = NumberToWord.new()
-    final_words.letter_combinations(rand(1000000000..9999999999).to_s)
+    final_words.letter_combinations(6686787825.to_s)
   end
   GC.start
 end
@@ -19,7 +19,9 @@ puts "=========================================="
 puts "Bench mark report for Number2word:: (100) "
 puts "=========================================="
 
-generateRandomNumber = Array.new(100) { rand(1000000000..9999999999) }
+# generateRandomNumber = Array.new(100) { rand(1000000000..9999999999).to_s }
+
+generateRandomNumber = [6686787825, 2282668687]
 
 Benchmark.bm do |b|
   GC.start

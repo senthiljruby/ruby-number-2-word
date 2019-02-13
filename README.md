@@ -4,6 +4,8 @@
 
 ## About
 
+The project is a Ruby script which takes an input of a 10 digit phone number and converts into meaningful words by performing keypad's letter combinations against a dictionary file
+
 
 ## Getting Started
 
@@ -51,6 +53,15 @@ Run `ruby -Itest test/main_test.rb` in the `test/` will be run.
 ##### DOCKER
 
 Run `docker-compose run app ruby index.rb` for running the application using docker instance.
+
+## Output screen
+
+#### Program Output
+![](output/program_output.png)
+
+#### Test Output
+![](output/test_output.png)
+
 
 ## Changelog
 
