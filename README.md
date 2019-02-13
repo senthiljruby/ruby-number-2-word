@@ -48,6 +48,10 @@ Simply run `ruby -Itest test/index.rb` and all your tests in the `test/` directo
 
 Run `ruby -Itest test/main_test.rb` in the `test/` will be run.
 
+##### DOCKER
+
+Run `docker-compose run app ruby index.rb` for running the application using docker instance.
+
 ## Changelog
 
 __1.0.0__
