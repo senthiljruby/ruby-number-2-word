@@ -7,6 +7,24 @@
 The project is a Ruby script which takes an input of a 10 digit phone number and converts into meaningful words by performing keypad's letter combinations against a dictionary file
 
 
+## Algorithm / Walkthrough
+
+1. Given a 10 digit phone number as input
+2. Based on the input digit it returns the list of all possible combinations of words (minimum 3 letters per word) from the dictionary file.
+3. The resulted combination values is mapped directly in order to form the phone number.
+4. Then number to letter mapping is as follows :
+
+    | Digit    | TYPEPAD    |
+    |:---------|:-----------|
+    | 2        | A,B,C      |
+    | 3        | D,E,F      |
+    | 4        | G,H,I      |
+    | 5        | J,K,L      |
+    | 6        | M,N,O      |
+    | 7        | P,Q,R,S    |
+    | 8        | T,U,V      |
+    | 9        | W,X,Y,Z    |
+
 ## Getting Started
 
 Getting up and running is as easy as 1, 2, 3.
@@ -61,7 +79,6 @@ Run `docker-compose run app ruby index.rb` for running the application using doc
 
 #### Test Output
 ![](output/test_output.png)
-
 
 ## Changelog
 

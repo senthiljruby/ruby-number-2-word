@@ -3,26 +3,18 @@ require_relative "../lib/number_to_word"
 require "test/unit"
 
 class TestNumberToWord < Test::Unit::TestCase
-  def setup
-    @data_to_test = [
-      ["noun", "struck"],
-      ["onto", "struck"],
-      ["motor", "truck"],
-      ["motor", "usual"],
-      ["nouns", "truck"],
-      ["nouns", "usual"],
-      "motortruck",
-    ]
-  end
-
   ###
   # @method test_number_to_word_without_0_or_1
   # @description Should compare the test value of output with the static test value.
   ###
   def test_number_to_word_without_0_or_1
+    @data_to_test = [["noun", "struck"], ["onto", "struck"], ["motor", "truck"], ["motor", "usual"], ["nouns", "truck"], ["nouns", "usual"], "motortruck"]
+
     final_words = NumberToWord.new()
     combination_words = "6686787825"
-    assert_equal(@data_to_test, final_words.letter_combinations(combination_words))
+    resulted_output = final_words.letter_combinations(combination_words)
+    assert_equal(@data_to_test, resulted_output)
+    # assert_equal(@data_to_test, final_words.letter_combinations(combination_words))
   end
 
   ###
@@ -30,9 +22,12 @@ class TestNumberToWord < Test::Unit::TestCase
   # @description Should compare the length of output with the static test value.
   ###
   def test_number_to_word_with_length_2
+    @data_to_test = [["noun", "struck"], ["onto", "struck"], ["motor", "truck"], ["motor", "usual"], ["nouns", "truck"], ["nouns", "usual"], "motortruck"]
+
     final_words = NumberToWord.new()
     combination_words = "6686787825"
-    assert_equal(@data_to_test.length, final_words.letter_combinations(combination_words).length)
+    resulted_output = final_words.letter_combinations(combination_words)
+    assert_equal(@data_to_test.length, resulted_output.length)
   end
 
   ###
