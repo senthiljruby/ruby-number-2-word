@@ -43,6 +43,3 @@ class NumberToWord
     final_words
   end
 end
-
-# 6686787825
-# 2282668687

@@ -122,25 +122,3 @@ class PreManipulationForAllCombinationWords
     final_words
   end
 end
-
-###
-# @class NumberToWord
-# @implements PreManipulationForWords
-###
-class NumberToWord < PreManipulationForWords
-  def letter_combinations(digits)
-    self.check_valid_number(digits)
-
-    #number to letters mapping
-    letters = @number_key_mapping
-
-    matching_words = {}
-
-    @dictionary.keys.each do |key|
-      matching_words[key] = self.arrange_words(digits[0..(key - 1)])
-    end
-
-    results = self.manipulate_results_for_number(digits, matching_words)
-    results
-  end
-end

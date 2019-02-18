@@ -4,7 +4,7 @@ require_relative "../../lib/pre_manipulation_for_two_words"
 
 require "test/unit"
 
-class TestNumberToWord < Test::Unit::TestCase
+class TestNumberToWordFor2Word < Test::Unit::TestCase
   def setup
     @pre_manipulation_for_words = PreManipulationForWords.new
   end
